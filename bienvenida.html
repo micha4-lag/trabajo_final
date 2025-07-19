@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenida</title>
+  <link rel="stylesheet" href="css/bien.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Bienvenido/a</h2>
+    <img id="foto" alt="Foto de perfil">
+    <p id="nombre"></p>
+    <p id="email"></p>
+    <div class="consulta-opciones">
+      <button onclick="location.href='consultas_dni.html'">Consultar DNI</button>
+      <button onclick="location.href='consultas_ruc.html'">Consultar RUC</button>
+      <button onclick="location.href='examen_xml.html'">Examen Xml</button> 
+      <button onclick="location.href='examen_json.html'">Examen json</button>
+      
+    </div>
+  </div>
+  <script>
+    const nombre = localStorage.getItem("nombre");
+    const email = localStorage.getItem("email");
+    const foto = localStorage.getItem("foto");
+    document.getElementById("nombre").innerText = "Nombre: " + nombre;
+    document.getElementById("email").innerText = "Correo: " + email;
+    document.getElementById("foto").src = foto;
+  </script>
+</body>
+</html>

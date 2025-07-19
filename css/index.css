@@ -1,0 +1,102 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor principal */
+.login-container {
+  background-color: #ffffff;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Inputs del formulario */
+#loginForm input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+#loginForm input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+/* Botón */
+#loginForm button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#loginForm button:hover {
+  background-color: #357ABD;
+}
+
+/* Separador "O" */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider span {
+  margin: 0 10px;
+  color: #888;
+  font-size: 14px;
+}
+
+/* Botón de Google */
+.g_id_signin {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .login-container {
+    padding: 30px 20px;
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Iniciar sesión</h2>
+    <form id="loginForm" onsubmit="return loginTradicional()">
+      <input type="text" id="usuario" placeholder="Usuario" required>
+      <input type="password" id="clave" placeholder="Contraseña" required>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+    <div class="divider"><span>O</span></div>
+    <div id="g_id_onload"
+         data-client_id="847077402717-utopffg9p6idf6uvf1ncbvpe425srt4f.apps.googleusercontent.com"
+         data-context="signin"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="rectangular"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-size="large">
+    </div>
+  </div>
+  <script>
+    function loginTradicional() {
+      const user = document.getElementById("usuario").value;
+      const pass = document.getElementById("clave").value;
+      if (true) {
+        localStorage.setItem("nombre", user);
+        localStorage.setItem("email", user + "@example.com");
+        window.location.href = "bienvenida.html";
+      } else {
+        alert("Usuario o contraseña incorrectos");
+      }
+      return false;
+    }
+    function handleCredentialResponse(response) {
+      const jwt = response.credential;
+      const payload = JSON.parse(atob(jwt.split('.')[1]));
+      localStorage.setItem("nombre", payload.name);
+      localStorage.setItem("email", payload.email);
+      localStorage.setItem("foto", payload.picture);
+      window.location.href = "bienvenida.html";
+    }
+  </script>
+</body>
+</html>
